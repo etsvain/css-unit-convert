@@ -8,7 +8,8 @@
    1.download or clone
    2.import 
 
-## exce
+## example
+```
   var scss = `
   .icon-box {
       height: 46px;
@@ -25,6 +26,8 @@
   }
   `
   exchangeUnit(scss,'px',100)
+```
   
+
 
 
