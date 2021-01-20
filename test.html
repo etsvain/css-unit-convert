@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>px-to-rem-conversion</title>
+    <script src="./math.js"></script>
+    <script src="./px-to-rem-conversion.js"></script>
+
+    <script>
+      var less = `
+      .base-button {
+        padding: 16px 32px;
+        font-size: 28px;
+        color: #1989fa;
+        border: 1px solid #1989fa;
+        border-radius: 10px;
+        transition: 0.15s;
+        // display: flex;
+        display: inline-block;
+        
+        &:active {
+          opacity: 0.8;
+        }
+      }
+      .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .base-nav {
+        
+      }
+`;
+      exchangeUnit({
+        css: less,
+        currentUnit: 'px',
+        targetUnit: 'rem',
+        base: 0.1,
+      });
+    </script>
+  </head>
+
+  <body></body>
+</html>
