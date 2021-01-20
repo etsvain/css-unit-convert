@@ -1,13 +1,12 @@
-# px-calculate
+# css-unit-convert
 
 # css 样式单位互转
-
-通过该工具可以实现 px，rem，em，vw，vh 目前所有单位的互相转换以及比例调整；
+# 对css/less/sass/等样式的单位进行转换;
 
 ## 用法
 
-clone;
-import;
+# clone;
+# import;
 
 ```
   var scss = `
