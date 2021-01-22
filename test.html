@@ -7,6 +7,12 @@
     <script src="./math.js"></script>
     <script src="./css-unit-convert.js"></script>
 
+  
+  </head>
+
+  <body>
+    <div id="test"></div>
+
     <script>
       var less = `
       .base-button {
@@ -32,15 +38,14 @@
       .base-nav {
         
       }
-`;
-      exchangeUnit({
+    `;
+      var newLss = convertUnit({
         css: less,
         currentUnit: 'px',
         targetUnit: 'rem',
         base: 0.1,
       });
+      document.getElementById('test').innerText = newLss;
     </script>
-  </head>
-
-  <body></body>
+  </body>
 </html>

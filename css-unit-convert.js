@@ -5,7 +5,7 @@
  * @params currentUnit 当前css的单位
  * @params base rem与px相互转换的倍数(除则用小数，乘则用整数)
  */
-function exchangeUnit({ css, currentUnit, targetUnit, base }) {
+function convertUnit({ css, currentUnit, targetUnit, base }) {
   var arr = css.split('\n'); // 对换行进行拆分
 	var neStr = [];
 
@@ -71,6 +71,5 @@ function exchangeUnit({ css, currentUnit, targetUnit, base }) {
     neStr.push(item);
   });
   neStr = neStr.join('\n');
-  console.log(neStr);
+  return neStr;
 }
-// console.log('arr:',arr)
