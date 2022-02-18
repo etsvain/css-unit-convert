@@ -9,7 +9,7 @@ function convertUnit({ css, currentUnit, targetUnit, base }) {
   var arr = css.split('\n'); // 对换行进行拆分
 	var neStr = [];
 
-  var currentUnit = targetUnit === 'px' ? 'px' : 'px';
+  // var currentUnit = targetUnit === 'px' ? 'px' : 'px';
 
   arr.forEach((item) => {
 		var sp = item.split(':'); // 拆分css键值对
@@ -40,9 +40,9 @@ function convertUnit({ css, currentUnit, targetUnit, base }) {
               if (newi.toString().indexOf('.') > -1) {
                 newi = newi.toString().replace(/0+?$/gi, '') * 1;
               }
-              if (targetUnit === 'px') {
-                newi = newi.toFixed();
-              }
+              // if (targetUnit === 'px') {
+              //   newi = newi.toFixed();
+              // }
 
               if (_numArr && _numArr.length > 0) {
                 newi = _numArr[0] + newi;

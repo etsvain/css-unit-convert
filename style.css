@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  width: 100%;
+}
+.input_box {
+  flex-grow: 2;
+}
+
+.trans_box {
+  /* display: flex; */
+  flex-grow: 2;
+  /* flex-direction: column; */
+}
+.btn_box {
+  /* flex-grow: 1; */
+  box-sizing: border-box;
+  padding:0px 20px;
+  width: 280px;
+}
+.text_box {
+  flex-grow: 2;
+}
+
+.input_line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.input_line label {
+  /* font-size: 12px; */
+  margin-right: 5px;;
+  white-space: nowrap;
+}

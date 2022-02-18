@@ -6,46 +6,78 @@
     <title>css-unit-convert</title>
     <script src="./math.js"></script>
     <script src="./css-unit-convert.js"></script>
-
-  
+    <link rel="stylesheet" href="./style.css" ></style>
   </head>
 
   <body>
-    <div id="test"></div>
+    <div class="container">
+        <textarea id="input" rows="4" class="input_box" placeholder="请在此处输入需要转换的样式内容...."></textarea>
+        <div class="btn_box">
+          <div class="input_line">
+            <label>当前单位:</label>
+            <input placeholder="请输入当前单位" class="currentUnit" />
+          </div>
+          <div class="input_line">
+            <label>转换比例:</label>
+            <input placeholder="请输入转换比例" class="base" />
+          </div>
+          <div class="input_line">
+            <label>目标单位:</label>
+            <input placeholder="请输入目标单位" class="targetUnit" />
+          </div>
+          <button onclick="onTrans()">转换</button>
+        </div>
+        <div class="trans_box">
+          <!-- <div id="test"></div> -->
+          <textarea id="test" rows="4" class="input_box" style="width: 100%;" readonly></textarea>
+          <button id="copy_btn" onclick="onCopy()">复制</button>
+        </div>
 
+    </div>
+    
     <script>
-      var less = `
-      .base-button {
-        padding: 16px 32px;
-        font-size: 28px;
-        color: #1989fa;
-        border: 1px solid #1989fa;
-        border-radius: 10px;
-        transition: 0.15s;
-        // display: flex;
-        display: inline-block;
-        
-        &:active {
-          opacity: 0.8;
+      function onCopy() {
+        var btn = document.querySelector('#copy_btn');
+        btn.addEventListener('click', () => {
+            var input = document.querySelector('#test');
+            input.select();
+            if (document.execCommand('copy')) {
+                document.execCommand('copy');
+                console.log('复制成功');
+            }
+        })
+      }
+      function onTrans() {
+        var input = document.querySelector('#input');;
+        var currentUnit = document.querySelector('.currentUnit')
+        var base = document.querySelector('.base')
+        var targetUnit = document.querySelector('.targetUnit')
+        var value = input.value;
+        if(!value) {
+          alert('样式不能为空');
+          return
         }
-      }
-      .flex-center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .base-nav {
+        if(!currentUnit.value) {
+          alert('请输入当前单位');
+          return
+        }
+        if(!base.value) {
+          alert('请输入转换比例');
+          return
+        }
+        if(!targetUnit.value) {
+          alert('请输入目标单位');
+          return
+        }
         
+        var newValue = convertUnit({
+          css: value,
+          currentUnit: currentUnit.value,
+          targetUnit: targetUnit.value,
+          base: base.value,
+        });
+        document.getElementById('test').innerText = newValue;
       }
-    `;
-      var newLss = convertUnit({
-        css: less,
-        currentUnit: 'px',
-        targetUnit: 'rem',
-        base: 0.1,
-      });
-      document.getElementById('test').innerText = newLss;
     </script>
   </body>
 </html>
